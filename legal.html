@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Legal — Café Fams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Jost:wght@300;400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FAF6F0;--paper:#F2EBE0;--paper2:#E8D9C8;
+  --brown1:#3D2314;--brown2:#6B3A25;--brown3:#9B6245;--brown4:#C49070;
+  --caramel:#D4A96A;--latte:#E8C99A;
+  --text:#2C1810;--text2:#5C3D2E;--text3:#8B6655;
+  --green:#2D7A4F;--red:#B5412B;
+  --shadow:rgba(60,30,10,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{background:var(--cream);color:var(--text);font-family:'Jost',sans-serif;}
+.topbar{position:sticky;top:0;z-index:100;background:var(--brown1);display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:56px;box-shadow:0 2px 12px rgba(0,0,0,0.3);}
+.tb-brand{display:flex;align-items:center;gap:9px;}
+.tb-name{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--latte);letter-spacing:1px;}
+.tb-back{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,0.08);border:1px solid rgba(212,169,106,0.25);color:var(--latte);border-radius:20px;padding:6px 13px;font-family:'Jost',sans-serif;font-size:12px;font-weight:600;cursor:pointer;text-decoration:none;transition:all 0.18s;}
+.tb-back:hover{background:rgba(255,255,255,0.14);}
+.lang-bar{background:var(--brown1);padding:8px 16px 12px;display:flex;align-items:center;gap:8px;border-bottom:1px solid rgba(212,169,106,0.15);}
+.lang-tog{display:flex;background:rgba(255,255,255,0.08);border-radius:20px;padding:3px;gap:2px;}
+.lng-btn{padding:5px 13px;border-radius:16px;font-size:11px;font-weight:700;cursor:pointer;border:none;font-family:'Jost',sans-serif;background:transparent;color:rgba(232,201,154,0.6);transition:all 0.15s;}
+.lng-btn.on{background:var(--caramel);color:var(--brown1);}
+.hero{background:linear-gradient(160deg,var(--brown1) 0%,#5C2E18 60%,var(--brown2) 100%);padding:32px 20px 28px;text-align:center;}
+.hero-eye{font-size:11px;font-weight:700;letter-spacing:3px;color:var(--caramel);margin-bottom:10px;text-transform:uppercase;}
+.hero-title{font-family:'Playfair Display',serif;font-size:26px;font-weight:900;color:var(--latte);line-height:1.25;margin-bottom:10px;}
+.hero-sub{font-size:12.5px;color:rgba(232,201,154,0.65);line-height:1.6;max-width:340px;margin:0 auto 12px;}
+.hero-date{font-size:10px;color:rgba(232,201,154,0.4);letter-spacing:0.5px;}
+.tab-nav{display:flex;background:var(--paper);border-bottom:1px solid var(--paper2);position:sticky;top:56px;z-index:90;overflow-x:auto;scrollbar-width:none;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-btn{flex:1;min-width:100px;padding:13px 8px;font-family:'Jost',sans-serif;font-size:11.5px;font-weight:600;color:var(--text3);border:none;background:transparent;cursor:pointer;border-bottom:2px solid transparent;transition:all 0.18s;white-space:nowrap;}
+.tab-btn.on{color:var(--brown1);border-bottom-color:var(--brown2);font-weight:700;}
+.content{padding:24px 18px 60px;max-width:640px;margin:0 auto;}
+.section{display:none;}
+.section.on{display:block;}
+.s-hero{background:linear-gradient(135deg,var(--brown1),var(--brown2));border-radius:18px;padding:22px 20px;margin-bottom:20px;text-align:center;}
+.s-hero-icon{font-size:36px;margin-bottom:8px;}
+.s-hero-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--latte);margin-bottom:6px;}
+.s-hero-sub{font-size:12px;color:rgba(232,201,154,0.7);line-height:1.6;}
+.card{background:#fff;border-radius:16px;padding:18px 16px;margin-bottom:14px;border:1px solid var(--paper2);box-shadow:0 2px 8px var(--shadow);}
+.card-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--brown1);margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+.card-body{font-size:13px;color:var(--text2);line-height:1.75;}
+.card-body p{margin-bottom:9px;}
+.card-body p:last-child{margin-bottom:0;}
+.card-body ul,.card-body ol{padding-left:18px;margin-bottom:9px;}
+.card-body li{margin-bottom:5px;}
+.card-body strong{color:var(--brown1);font-weight:600;}
+.highlight-box{background:rgba(61,35,20,0.06);border-left:3px solid var(--caramel);border-radius:0 10px 10px 0;padding:12px 14px;margin:12px 0;font-size:12.5px;color:var(--text2);line-height:1.65;}
+.contact-card{background:linear-gradient(135deg,var(--brown1),#5C2E18);border-radius:16px;padding:20px 18px;margin-top:20px;text-align:center;}
+.contact-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--latte);margin-bottom:12px;}
+.contact-row{display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:7px;font-size:12.5px;color:rgba(232,201,154,0.85);}
+.contact-row a{color:var(--caramel);text-decoration:none;}
+.ref-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px;}
+.ref-table th{background:var(--brown1);color:var(--latte);padding:9px 10px;text-align:left;font-weight:700;}
+.ref-table td{padding:9px 10px;border-bottom:1px solid var(--paper2);color:var(--text2);vertical-align:top;}
+.ref-table tr:last-child td{border-bottom:none;}
+.ref-table tr:nth-child(even) td{background:rgba(61,35,20,0.03);}
+.badge{display:inline-block;padding:2px 9px;border-radius:10px;font-size:10px;font-weight:700;}
+.badge-green{background:rgba(45,122,79,0.12);color:var(--green);border:1px solid rgba(45,122,79,0.25);}
+.badge-red{background:rgba(181,65,43,0.10);color:var(--red);border:1px solid rgba(181,65,43,0.2);}
+.badge-amber{background:rgba(212,169,106,0.15);color:var(--brown2);border:1px solid rgba(212,169,106,0.3);}
+.legal-footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--text3);border-top:1px solid var(--paper2);margin-top:10px;}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="tb-brand"><span style="font-size:20px">☕</span><span class="tb-name">CAFÉ FAMS</span></div>
+  <a class="tb-back" href="index.html">← <span id="backTxt">Back</span></a>
+</div>
+<div class="lang-bar">
+  <div class="lang-tog">
+    <button class="lng-btn on" id="btnEN" onclick="setLang('en')">EN</button>
+    <button class="lng-btn" id="btnBN" onclick="setLang('bn')">বাং</button>
+  </div>
+</div>
+<div class="hero">
+  <div class="hero-eye" id="heroEye">LEGAL INFORMATION</div>
+  <div class="hero-title" id="heroTitle">Privacy, Terms<br>&amp; Refund Policy</div>
+  <div class="hero-sub" id="heroSub">Please read these policies carefully before placing an order at Café Fams.</div>
+  <div class="hero-date" id="heroDate">Last updated: June 2025</div>
+</div>
+<div class="tab-nav">
+  <button class="tab-btn on" id="tab0" onclick="showTab(0)"><span id="t0lbl">🔒 Privacy</span></button>
+  <button class="tab-btn" id="tab1" onclick="showTab(1)"><span id="t1lbl">📋 Terms</span></button>
+  <button class="tab-btn" id="tab2" onclick="showTab(2)"><span id="t2lbl">💸 Refunds</span></button>
+</div>
+<div class="content">
+
+<!-- PRIVACY -->
+<div class="section on" id="s0">
+  <div class="s-hero">
+    <div class="s-hero-icon">🔒</div>
+    <div class="s-hero-title" id="pp-title">Privacy Policy</div>
+    <div class="s-hero-sub" id="pp-sub">We respect your privacy. Here's exactly what we collect and why.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">📋 <span id="pp1-t">What Information We Collect</span></div>
+    <div class="card-body" id="pp1-b">
+      <p>When you use Café Fams' digital ordering system, we collect:</p>
+      <ul>
+        <li><strong>Name</strong> — to personalise your experience and identify your order</li>
+        <li><strong>Phone number</strong> — to allow you to retrieve past orders</li>
+        <li><strong>Table number</strong> — to deliver your order to the correct table</li>
+        <li><strong>Order details</strong> — items ordered, quantity, and total amount</li>
+        <li><strong>Payment information</strong> — processed securely by Razorpay; we never store card or UPI credentials</li>
+        <li><strong>Location (GPS)</strong> — used only in real-time to verify you are physically present; never stored</li>
+        <li><strong>Chat messages</strong> — used only to process your order</li>
+        <li><strong>Feedback & ratings</strong> — if you voluntarily submit a review</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🎯 <span id="pp2-t">How We Use Your Information</span></div>
+    <div class="card-body">
+      <ul>
+        <li>Processing and delivering your food order</li>
+        <li>Sending order status notifications</li>
+        <li>Allowing you to reorder using your phone number</li>
+        <li>Improving our menu and service based on feedback</li>
+        <li>Fraud prevention (GPS radius check)</li>
+      </ul>
+      <div class="highlight-box">We do <strong>not</strong> sell, rent, or share your personal information with any third party for marketing purposes.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🔐 <span id="pp3-t">Data Storage & Security</span></div>
+    <div class="card-body">
+      <p>Order data is securely logged in our private Google Sheets, accessible only to Café Fams management. Payments are handled by <strong>Razorpay</strong> (PCI-DSS compliant). Your GPS location is checked in real-time and <strong>never stored</strong>. Chat history lives only in your browser session and clears when you close the app.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">📅 <span id="pp4-t">Data Retention</span></div>
+    <div class="card-body">
+      <p>Order records are retained for a maximum of <strong>90 days</strong> for accounting purposes, after which they are deleted. Feedback is retained in anonymised form to improve our service.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">👤 <span id="pp5-t">Your Rights</span></div>
+    <div class="card-body">
+      <p>You have the right to request a copy of your data, request deletion of your data, or withdraw consent at any time by contacting us at the address below.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🍪 <span id="pp6-t">Cookies & Local Storage</span></div>
+    <div class="card-body">
+      <p>We use browser <strong>sessionStorage</strong> to temporarily save your table, name, and order details during your visit. This is automatically cleared when you close the app. We do not use advertising cookies or third-party tracking.</p>
+    </div>
+  </div>
+  <div class="contact-card">
+    <div class="contact-title" id="pp-contact-t">Questions about Privacy?</div>
+    <div class="contact-row">📍 Café Fams, Dhupguri, West Bengal, India</div>
+    <div class="contact-row">📧 <a href="mailto:cafefams@gmail.com">cafefams@gmail.com</a></div>
+    <div class="contact-row">📞 <a href="tel:+919800000000">+91 98000 00000</a></div>
+  </div>
+</div>
+
+<!-- TERMS -->
+<div class="section" id="s1">
+  <div class="s-hero">
+    <div class="s-hero-icon">📋</div>
+    <div class="s-hero-title" id="ts-title">Terms of Service</div>
+    <div class="s-hero-sub" id="ts-sub">By placing an order at Café Fams, you agree to these terms.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">☕ <span id="ts1-t">About Café Fams</span></div>
+    <div class="card-body">
+      <p>Café Fams is a restaurant in Dhupguri, West Bengal, India. Our digital ordering system allows dine-in customers to browse the menu, place orders, and make payments from their table using a QR code.</p>
+      <div class="highlight-box">This service is for <strong>dine-in customers only</strong> who are physically present at the restaurant. Remote ordering is not supported.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">✅ <span id="ts2-t">Eligibility to Use</span></div>
+    <div class="card-body">
+      <ul>
+        <li>You must be physically present at Café Fams to place an order (verified via GPS)</li>
+        <li>You must provide accurate name and phone number</li>
+        <li>You must be 18 years or older to make payments</li>
+        <li>One session per table — multiple simultaneous sessions may cause order conflicts</li>
+      </ul>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🍽️ <span id="ts3-t">Ordering & Menu</span></div>
+    <div class="card-body">
+      <p>Menu items and prices may change without notice. Item availability may vary daily. All prices include GST (5%). If there is a confusion in your order, use <strong>"Talk to Human"</strong> or call a waiter before preparation begins.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">💳 <span id="ts4-t">Payments</span></div>
+    <div class="card-body">
+      <p>Payments are processed via <strong>Razorpay</strong>. We accept UPI, credit/debit cards, and net banking. Cash is also accepted at the counter.</p>
+      <div class="highlight-box">Café Fams does not store your payment credentials. All transactions are encrypted by Razorpay's secure payment infrastructure.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">⚠️ <span id="ts5-t">Acceptable Use</span></div>
+    <div class="card-body">
+      <p>You agree NOT to place fake or fraudulent orders, attempt to bypass geo-radius verification, use the AI chatbot for non-ordering purposes, or abuse the system in any way. Violations may result in order cancellation and access being blocked.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">⚖️ <span id="ts6-t">Limitation of Liability</span></div>
+    <div class="card-body">
+      <p>Café Fams shall not be held liable for delays due to high order volume, allergic reactions (please inform staff of allergies before ordering), or technical issues caused by third-party services (Razorpay, network providers).</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🇮🇳 <span id="ts7-t">Governing Law</span></div>
+    <div class="card-body">
+      <p>These Terms are governed by the laws of India. Disputes are subject to the jurisdiction of courts in West Bengal, India.</p>
+    </div>
+  </div>
+  <div class="contact-card">
+    <div class="contact-title" id="ts-contact-t">Questions about Terms?</div>
+    <div class="contact-row">📍 Café Fams, Dhupguri, West Bengal, India</div>
+    <div class="contact-row">📧 <a href="mailto:cafefams@gmail.com">cafefams@gmail.com</a></div>
+    <div class="contact-row">📞 <a href="tel:+919800000000">+91 98000 00000</a></div>
+  </div>
+</div>
+
+<!-- REFUND -->
+<div class="section" id="s2">
+  <div class="s-hero">
+    <div class="s-hero-icon">💸</div>
+    <div class="s-hero-title" id="rp-title">Refund &amp; Cancellation Policy</div>
+    <div class="s-hero-sub" id="rp-sub">We want every visit to be perfect. Here's our fair refund policy.</div>
+  </div>
+  <div class="card">
+    <div class="card-title">📊 <span id="rp1-t">Refund Summary</span></div>
+    <div class="card-body">
+      <table class="ref-table">
+        <thead><tr><th id="rph1">Situation</th><th id="rph2">Refund</th><th id="rph3">Timeline</th></tr></thead>
+        <tbody>
+          <tr><td id="rr1s">Wrong item served</td><td><span class="badge badge-green" id="rr1r">Full Refund or Replacement</span></td><td id="rr1t">Immediate</td></tr>
+          <tr><td id="rr2s">Food quality issue (inedible)</td><td><span class="badge badge-green" id="rr2r">Full Refund or Replacement</span></td><td id="rr2t">Same visit</td></tr>
+          <tr><td id="rr3s">Order not received (delay &gt; 45 min)</td><td><span class="badge badge-amber" id="rr3r">Partial or Full Refund</span></td><td id="rr3t">Within 24 hours</td></tr>
+          <tr><td id="rr4s">Customer changed mind (food being prepared)</td><td><span class="badge badge-red" id="rr4r">No Refund</span></td><td id="rr4t">—</td></tr>
+          <tr><td id="rr5s">Payment failed but amount deducted</td><td><span class="badge badge-green" id="rr5r">Full Refund</span></td><td id="rr5t">5–7 business days</td></tr>
+          <tr><td id="rr6s">Duplicate payment</td><td><span class="badge badge-green" id="rr6r">Full Refund</span></td><td id="rr6t">5–7 business days</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">❌ <span id="rp2-t">Order Cancellation</span></div>
+    <div class="card-body">
+      <p>An order can be cancelled <strong>only before</strong> the kitchen changes status to "Preparing". Once preparation begins, cancellation is not possible. Use the <strong>"Cancel Order"</strong> option in the Orders tab or inform staff immediately.</p>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🔄 <span id="rp3-t">How to Request a Refund</span></div>
+    <div class="card-body">
+      <ol>
+        <li>Speak to a Café Fams staff member at the restaurant, <strong>or</strong></li>
+        <li>Email <a href="mailto:cafefams@gmail.com" style="color:var(--brown2)">cafefams@gmail.com</a> with your Order ID and reason</li>
+        <li>Share your payment screenshot or Razorpay transaction ID</li>
+        <li>Refunds are processed within <strong>5–7 business days</strong> to your original payment method</li>
+      </ol>
+      <div class="highlight-box">For payment failures or duplicate charges, refunds are handled automatically by Razorpay and reversed to your original payment method.</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">🚫 <span id="rp4-t">Non-Refundable Situations</span></div>
+    <div class="card-body">
+      <ul>
+        <li>Order already served and partially or fully consumed</li>
+        <li>Customer left the restaurant without raising a complaint</li>
+        <li>Dissatisfaction with spice level when ordered per menu description</li>
+        <li>Change of mind after food has been prepared</li>
+      </ul>
+    </div>
+  </div>
+  <div class="contact-card">
+    <div class="contact-title" id="rp-contact-t">Need a Refund?</div>
+    <div class="contact-row">📍 Café Fams, Dhupguri, West Bengal, India</div>
+    <div class="contact-row">📧 <a href="mailto:cafefams@gmail.com">cafefams@gmail.com</a></div>
+    <div class="contact-row">📞 <a href="tel:+919800000000">+91 98000 00000</a></div>
+  </div>
+</div>
+
+<div class="legal-footer" id="legalFooter">
+  © 2025 Café Fams, Dhupguri, West Bengal, India. All rights reserved.<br>
+  <span style="opacity:0.6">Powered by Café Fams Digital Ordering System</span>
+</div>
+</div>
+
+<script>
+let lang = localStorage.getItem('cf_lang') || 'en';
+const TX = {
+  en:{
+    back:'Back',heroEye:'LEGAL INFORMATION',heroTitle:'Privacy, Terms<br>&amp; Refund Policy',
+    heroSub:'Please read these policies carefully before placing an order at Café Fams.',
+    heroDate:'Last updated: June 2025',
+    t0:'🔒 Privacy',t1:'📋 Terms',t2:'💸 Refunds',
+    'pp-title':'Privacy Policy','pp-sub':"We respect your privacy. Here's exactly what we collect and why.",
+    'pp1-t':'What Information We Collect','pp2-t':'How We Use Your Information',
+    'pp3-t':'Data Storage & Security','pp4-t':'Data Retention',
+    'pp5-t':'Your Rights','pp6-t':'Cookies & Local Storage','pp-contact-t':'Questions about Privacy?',
+    'ts-title':'Terms of Service','ts-sub':'By placing an order at Café Fams, you agree to these terms.',
+    'ts1-t':'About Café Fams','ts2-t':'Eligibility to Use','ts3-t':'Ordering & Menu',
+    'ts4-t':'Payments','ts5-t':'Acceptable Use','ts6-t':'Limitation of Liability',
+    'ts7-t':'Governing Law','ts-contact-t':'Questions about Terms?',
+    'rp-title':'Refund & Cancellation Policy','rp-sub':"We want every visit to be perfect. Here's our fair refund policy.",
+    'rp1-t':'Refund Summary','rph1':'Situation','rph2':'Refund','rph3':'Timeline',
+    'rr1s':'Wrong item served','rr1r':'Full Refund or Replacement','rr1t':'Immediate',
+    'rr2s':'Food quality issue (inedible)','rr2r':'Full Refund or Replacement','rr2t':'Same visit',
+    'rr3s':'Order not received (delay > 45 min)','rr3r':'Partial or Full Refund','rr3t':'Within 24 hours',
+    'rr4s':'Customer changed mind (food being prepared)','rr4r':'No Refund','rr4t':'—',
+    'rr5s':'Payment failed but amount deducted','rr5r':'Full Refund','rr5t':'5–7 business days',
+    'rr6s':'Duplicate payment','rr6r':'Full Refund','rr6t':'5–7 business days',
+    'rp2-t':'Order Cancellation','rp3-t':'How to Request a Refund','rp4-t':'Non-Refundable Situations',
+    'rp-contact-t':'Need a Refund?',
+    footer:'© 2025 Café Fams, Dhupguri, West Bengal, India. All rights reserved.'
+  },
+  bn:{
+    back:'ফিরুন',heroEye:'আইনি তথ্য',heroTitle:'গোপনীয়তা, শর্তাবলী<br>ও রিফান্ড নীতি',
+    heroSub:'Café Fams-এ অর্ডার করার আগে এই নীতিগুলো মনোযোগ দিয়ে পড়ুন।',
+    heroDate:'সর্বশেষ আপডেট: জুন ২০২৫',
+    t0:'🔒 গোপনীয়তা',t1:'📋 শর্তাবলী',t2:'💸 রিফান্ড',
+    'pp-title':'গোপনীয়তা নীতি','pp-sub':'আমরা আপনার গোপনীয়তাকে সম্মান করি। আমরা ঠিক কী সংগ্রহ করি এবং কেন।',
+    'pp1-t':'আমরা কী তথ্য সংগ্রহ করি','pp2-t':'আপনার তথ্য কীভাবে ব্যবহার করি',
+    'pp3-t':'ডেটা সংরক্ষণ ও নিরাপত্তা','pp4-t':'ডেটা কতদিন রাখা হয়',
+    'pp5-t':'আপনার অধিকার','pp6-t':'Cookies ও Local Storage','pp-contact-t':'গোপনীয়তা নিয়ে প্রশ্ন?',
+    'ts-title':'সেবার শর্তাবলী','ts-sub':'Café Fams-এ অর্ডার করলে আপনি এই শর্তগুলো মেনে নিচ্ছেন।',
+    'ts1-t':'Café Fams সম্পর্কে','ts2-t':'ব্যবহারের যোগ্যতা','ts3-t':'অর্ডার ও মেনু',
+    'ts4-t':'পেমেন্ট','ts5-t':'সঠিক ব্যবহার','ts6-t':'দায়বদ্ধতার সীমা',
+    'ts7-t':'প্রযোজ্য আইন','ts-contact-t':'শর্তাবলী নিয়ে প্রশ্ন?',
+    'rp-title':'রিফান্ড ও বাতিল নীতি','rp-sub':'আমরা চাই প্রতিটি ভিজিট পরিপূর্ণ হোক।',
+    'rp1-t':'রিফান্ড সারসংক্ষেপ','rph1':'পরিস্থিতি','rph2':'রিফান্ড','rph3':'সময়সীমা',
+    'rr1s':'ভুল আইটেম পরিবেশিত','rr1r':'পূর্ণ রিফান্ড বা প্রতিস্থাপন','rr1t':'তাৎক্ষণিক',
+    'rr2s':'খাবারের মান সমস্যা (খাওয়ার অযোগ্য)','rr2r':'পূর্ণ রিফান্ড বা প্রতিস্থাপন','rr2t':'একই ভিজিটে',
+    'rr3s':'অর্ডার পাওয়া যায়নি (৪৫ মিনিটের বেশি দেরি)','rr3r':'আংশিক বা পূর্ণ রিফান্ড','rr3t':'২৪ ঘণ্টার মধ্যে',
+    'rr4s':'মন পরিবর্তন (রান্না শুরু হয়েছে)','rr4r':'রিফান্ড নেই','rr4t':'—',
+    'rr5s':'পেমেন্ট ব্যর্থ কিন্তু টাকা কেটেছে','rr5r':'পূর্ণ রিফান্ড','rr5t':'৫–৭ কার্যদিবস',
+    'rr6s':'দ্বৈত পেমেন্ট','rr6r':'পূর্ণ রিফান্ড','rr6t':'৫–৭ কার্যদিবস',
+    'rp2-t':'অর্ডার বাতিল','rp3-t':'রিফান্ড কীভাবে চাইবেন','rp4-t':'রিফান্ড হবে না যেসব ক্ষেত্রে',
+    'rp-contact-t':'রিফান্ড দরকার?',
+    footer:'© ২০২৫ Café Fams, ধুপগুড়ি, পশ্চিমবঙ্গ, ভারত। সর্বস্বত্ব সংরক্ষিত।'
+  }
+};
+const TEXT_IDS=['backTxt','heroEye','heroDate','t0lbl','t1lbl','t2lbl',
+  'pp-title','pp-sub','pp1-t','pp2-t','pp3-t','pp4-t','pp5-t','pp6-t','pp-contact-t',
+  'ts-title','ts-sub','ts1-t','ts2-t','ts3-t','ts4-t','ts5-t','ts6-t','ts7-t','ts-contact-t',
+  'rp-title','rp-sub','rp1-t','rph1','rph2','rph3',
+  'rr1s','rr1r','rr1t','rr2s','rr2r','rr2t','rr3s','rr3r','rr3t',
+  'rr4s','rr4r','rr4t','rr5s','rr5r','rr5t','rr6s','rr6r','rr6t',
+  'rp2-t','rp3-t','rp4-t','rp-contact-t'];
+function setLang(l){
+  lang=l;
+  localStorage.setItem('cf_lang',l);
+  document.getElementById('btnEN').classList.toggle('on',l==='en');
+  document.getElementById('btnBN').classList.toggle('on',l==='bn');
+  document.documentElement.lang=l==='bn'?'bn':'en';
+  document.body.style.fontFamily=l==='bn'?"'Hind Siliguri','Jost',sans-serif":"'Jost',sans-serif";
+  const t=TX[l];
+  // innerHTML for title (has <br>)
+  document.getElementById('heroTitle').innerHTML=t.heroTitle;
+  document.getElementById('heroSub').textContent=t.heroSub;
+  TEXT_IDS.forEach(id=>{const el=document.getElementById(id);if(el&&t[id]!==undefined)el.textContent=t[id];});
+  document.getElementById('legalFooter').innerHTML=t.footer+'<br><span style="opacity:0.6">Powered by Café Fams Digital Ordering System</span>';
+}
+function showTab(i){
+  [0,1,2].forEach(j=>{
+    document.getElementById('s'+j).classList.toggle('on',j===i);
+    document.getElementById('tab'+j).classList.toggle('on',j===i);
+  });
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+setLang(lang);
+</script>
+</body>
+</html>
